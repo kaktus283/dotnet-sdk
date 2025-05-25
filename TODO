@@ -1,0 +1,4 @@
+* Internal Logdash logger (WiP)
+* Metrics support (partially)
+* Verbose Mode aligned with other SDK (partially)
+* Refactor structure (WiP)

@@ -1,4 +1,4 @@
-using Logdash.Logger;
+using Logdash.Logger.Internal;
 
 namespace Logdash
 {

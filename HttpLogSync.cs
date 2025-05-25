@@ -1,6 +1,6 @@
 using System.Text;
 using System.Text.Json;
-using Logdash.Logger;
+using Logdash.Logger.Internal;
 
 namespace Logdash
 {

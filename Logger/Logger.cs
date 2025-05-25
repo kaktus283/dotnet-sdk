@@ -1,4 +1,5 @@
-using static Logdash.Logger.LogColors;
+using Logdash.Logger.Internal;
+using static Logdash.Logger.Internal.LogColors;
 
 namespace Logdash.Logger
 {

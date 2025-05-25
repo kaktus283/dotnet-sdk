@@ -1,4 +1,5 @@
 using Logdash.Logger;
+using Logdash.Logger.Internal;
 using Logdash.Metrics;
 
 namespace Logdash

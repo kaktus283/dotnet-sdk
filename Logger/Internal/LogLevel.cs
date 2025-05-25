@@ -1,4 +1,4 @@
-namespace Logdash.Logger
+namespace Logdash.Logger.Internal
 {
     public enum LogLevel
     {

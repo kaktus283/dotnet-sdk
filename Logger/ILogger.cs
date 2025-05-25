@@ -5,25 +5,38 @@ namespace Logdash.Logger
         void Log(LogLevel level, string message);
 
         /// <summary>
-        /// Logs a message as an error (ERROR) to the console and sends it to the logging system.
+        /// Log an error message.
         /// </summary>
-        /// <param name="message">The message content to be logged.</param>
         void Error(string message);
 
         /// <summary>
-        /// Logs a message as an warning (WARNING) to the console and sends it to the logging system.
+        /// Log a warning message.
         /// </summary>
-        /// <param name="message">The message content to be logged.</param>
         void Warn(string message);
 
         /// <summary>
-        /// Logs a message as an information (INFORMATION) to the console and sends it to the logging system.
+        /// Log an info message.
         /// </summary>
-        /// <param name="message">The message content to be logged.</param>
         void Info(string message);
+
+        /// <summary>
+        /// Log an HTTP-related message.
+        /// </summary>
         void Http(string message);
+
+        /// <summary>
+        /// Log a verbose message.
+        /// </summary>
         void Verbose(string message);
+
+        /// <summary>
+        /// Log a debug message.
+        /// </summary>
         void Debug(string message);
+
+        /// <summary>
+        /// Log a silly message (lowest priority).
+        /// </summary>
         void Silly(string message);
     }
 }

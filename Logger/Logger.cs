@@ -2,14 +2,9 @@ using static Logdash.Logger.LogColors;
 
 namespace Logdash.Logger
 {
-    public class Logger : ILogger
+    public class Logger(Action<LogLevel, string> onLog) : ILogger
     {
-        private readonly Action<LogLevel, string> _onLog;
-
-        public Logger(Action<LogLevel, string> onLog)
-        {
-            _onLog = onLog;
-        }
+        private readonly Action<LogLevel, string> _onLog = onLog;
 
         public void Log(LogLevel level, string message)
         {
@@ -18,13 +13,13 @@ namespace Logdash.Logger
 
         private static void PrintColored(LogLevel level, string message)
         {
-            var color = LOG_LEVEL_COLORS[level];
-            var ansi = RgbToAnsi(color);
-            var label = level.ToString().ToUpper();
+            var rgb = LOG_LEVEL_COLORS[level];
+            var ansiColorCode = RgbToAnsi(rgb);
+            var levelLabel = level.ToString().ToUpper();
 
             Console.Write($"[{DateTime.Now:yyyy-MM-ddTHH:mm:ss.ffffff}] ");
-            Console.Write(ansi);
-            Console.Write($"{label} ");
+            Console.Write(ansiColorCode);
+            Console.Write($"{levelLabel} ");
             Console.Write("\u001b[0m");
             Console.Write(message);
             Console.WriteLine();

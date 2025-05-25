@@ -1,3 +1,5 @@
+using Logdash.Logger;
+
 namespace Logdash
 {
     public static class LogSyncFactory

@@ -1,4 +1,4 @@
-using System;
+using static Logdash.Logger.LogColors;
 
 namespace Logdash.Logger
 {
@@ -16,94 +16,59 @@ namespace Logdash.Logger
             _onLog(level, message);
         }
 
-        public void Error(string message)
+        private static void PrintColored(LogLevel level, string message)
         {
-            Console.Write($"[{DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.ffffff")}] ");
-            Console.Write("\u001b[38;2;231;0;11m");
-            Console.Write("ERROR ");
+            var color = LOG_LEVEL_COLORS[level];
+            var ansi = RgbToAnsi(color);
+            var label = level.ToString().ToUpper();
+
+            Console.Write($"[{DateTime.Now:yyyy-MM-ddTHH:mm:ss.ffffff}] ");
+            Console.Write(ansi);
+            Console.Write($"{label} ");
             Console.Write("\u001b[0m");
             Console.Write(message);
-
             Console.WriteLine();
+        }
 
+        public void Error(string message)
+        {
+            PrintColored(LogLevel.ERROR, message);
             Log(LogLevel.ERROR, message);
         }
 
         public void Warn(string message)
         {
-            Console.Write($"[{DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.ffffff")}] ");
-            Console.Write("\u001b[38;2;254;154;0m");
-            Console.Write("WARN ");
-            Console.Write("\u001b[0m");
-            Console.Write(message);
-
-            Console.WriteLine();
-
+            PrintColored(LogLevel.WARNING, message);
             Log(LogLevel.WARNING, message);
         }
 
         public void Info(string message)
         {
-            Console.Write($"[{DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.ffffff")}] ");
-            Console.Write("\u001b[38;2;21;93;252m");
-            Console.Write("INFO ");
-            Console.Write("\u001b[0m");
-            Console.Write(message);
-
-            Console.WriteLine();
-
+            PrintColored(LogLevel.INFO, message);
             Log(LogLevel.INFO, message);
         }
 
         public void Http(string message)
         {
-            Console.Write($"[{DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.ffffff")}] ");
-            Console.Write("\u001b[38;2;0;166;166m");
-            Console.Write("HTTP ");
-            Console.Write("\u001b[0m");
-            Console.Write(message);
-
-            Console.WriteLine();
-
+            PrintColored(LogLevel.HTTP, message);
             Log(LogLevel.HTTP, message);
         }
 
         public void Verbose(string message)
         {
-            Console.Write($"[{DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.ffffff")}] ");
-            Console.Write("\u001b[38;2;0;166;0m");
-            Console.Write("VERBOSE ");
-            Console.Write("\u001b[0m");
-            Console.Write(message);
-
-            Console.WriteLine();
-
+            PrintColored(LogLevel.VERBOSE, message);
             Log(LogLevel.VERBOSE, message);
         }
 
         public void Debug(string message)
         {
-            Console.Write($"[{DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.ffffff")}] ");
-            Console.Write("\u001b[38;2;0;166;62m");
-            Console.Write("DEBUG ");
-            Console.Write("\u001b[0m");
-            Console.Write(message);
-
-            Console.WriteLine();
-
+            PrintColored(LogLevel.DEBUG, message);
             Log(LogLevel.DEBUG, message);
         }
 
         public void Silly(string message)
         {
-            Console.Write($"[{DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.ffffff")}] ");
-            Console.Write("\u001b[38;2;80;80;80m");
-            Console.Write("SILLY ");
-            Console.Write("\u001b[0m");
-            Console.Write(message);
-
-            Console.WriteLine();
-
+            PrintColored(LogLevel.SILLY, message);
             Log(LogLevel.SILLY, message);
         }
     }

@@ -9,7 +9,7 @@ Setup your free project in less than 2 minutes at [logdash.io](https://logdash.i
 ## Installation
 
 ```bash
-~~dotnet add package logdash~~
+dotnet add package
 ```
 
 ## Logging

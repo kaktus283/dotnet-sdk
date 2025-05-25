@@ -1,4 +1,3 @@
-using Logdash.Core;
 using Logdash.Logger;
 using Logdash.Metrics;
 

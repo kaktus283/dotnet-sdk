@@ -25,7 +25,7 @@ namespace Logdash
             if (string.IsNullOrEmpty(_apiKey))
             {
                 if (_verbose)
-                    Console.WriteLine("[Logdash][DEBUG] API key is missing, log not sent.");
+                    InternalLogger.Debug("API key is missing, log not sent.");
                 return;
             }
 
@@ -40,7 +40,7 @@ namespace Logdash
             string payloadJson = JsonSerializer.Serialize(payload);
 
             if (_verbose)
-                Console.WriteLine($"[Logdash][DEBUG] Start request for: {message}");
+                InternalLogger.Debug($"Start request for: {message}");
             var request = new HttpRequestMessage(HttpMethod.Post, $"{_host}/logs")
             {
                 Content = new StringContent(payloadJson, Encoding.UTF8, "application/json")
@@ -58,14 +58,14 @@ namespace Logdash
                 {
                     if (_verbose)
                     {
-                        Console.WriteLine($"[Logdash][DEBUG] Log sent successfully: {message}");
+                        InternalLogger.Debug($"Log sent successfully: {message}");
                     }
                     _sequenceNumber++;
                 }
                 else
                 {
-                    Console.WriteLine(
-                        "[Logdash][DEBUG] Failed to send log: "
+                    InternalLogger.Debug(
+                        "Failed to send log: "
                             + message
                             + " HTTP status: "
                             + (int)response.StatusCode
@@ -78,7 +78,7 @@ namespace Logdash
             catch (Exception ex)
             {
                 if (_verbose)
-                    Console.WriteLine($"[Logdash][EXCEPTION] Error sending log: {ex.Message}");
+                    InternalLogger.Error($"Error sending log: {ex.Message}");
             }
         }
     }

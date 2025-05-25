@@ -10,11 +10,11 @@ public class Program
             new()
             {
                 //Your API key of project - (optional)
-                ["api_key"] = "mU4qpiWaI5gUn1yt95Cknczhx09kr0Em",
+                ["api_key"] = "",
                 //Your own Logdash host address - (optional)
                 ["host"] = "https://api.logdash.io",
                 //Enable (true) or disable (false) debug information - (optional)
-                ["verbose"] = true
+                ["verbose"] = false
             }
         );
 

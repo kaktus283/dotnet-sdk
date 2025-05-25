@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-sdk", "dotnet-sdk.csproj", "{C8C7C1B6-9E62-1229-8185-039F48927440}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8C7C1B6-9E62-1229-8185-039F48927440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8C7C1B6-9E62-1229-8185-039F48927440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8C7C1B6-9E62-1229-8185-039F48927440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8C7C1B6-9E62-1229-8185-039F48927440}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F962F75A-444A-4B1A-93DC-760C82718A6D}
+	EndGlobalSection
+EndGlobal
